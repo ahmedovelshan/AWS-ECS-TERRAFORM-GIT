@@ -50,6 +50,6 @@ jobs:
       run: terraform plan -input=false
 
     # On push to "main", build or change infrastructure according to Terraform configuration files
-    - name: Terraform destroy
+    - name: Terraform apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform destroy -auto-approve -input=false
+      run: terraform apply -auto-approve -input=false
